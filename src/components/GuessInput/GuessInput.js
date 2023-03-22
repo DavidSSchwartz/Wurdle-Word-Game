@@ -1,4 +1,5 @@
 import React from "react";
+import { LENGTH_OF_GUESS } from "../../constants";
 
 function GuessInput({guessList, setGuessList}) {
   const [guess, setGuess] = React.useState("");
@@ -22,7 +23,7 @@ function GuessInput({guessList, setGuessList}) {
         type='text'
         id='guess-input'
         value={guess}
-        maxLength={5}
+        maxLength={LENGTH_OF_GUESS}
         pattern='.{5}'
         onChange={handleInputChange}
       />
