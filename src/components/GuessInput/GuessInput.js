@@ -1,14 +1,16 @@
 import React from "react";
-import { LENGTH_OF_GUESS } from "../../constants";
+import { LENGTH_OF_GUESS, NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function GuessInput({guessList, setGuessList}) {
+function GuessInput({guessList, setGuessList, answer, setIsWinner, isWinner}) {
   const [guess, setGuess] = React.useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ guess });
-    setGuessList([...guessList, guess])
+    setGuessList([...guessList, guess]);
     setGuess("");
+    if (guess === answer)
+      setIsWinner(true);
   };
 
   const handleInputChange = (e) => {
@@ -26,6 +28,7 @@ function GuessInput({guessList, setGuessList}) {
         maxLength={LENGTH_OF_GUESS}
         pattern='.{5}'
         onChange={handleInputChange}
+        disabled={isWinner || guessList.length === NUM_OF_GUESSES_ALLOWED}
       />
     </form>
   );
