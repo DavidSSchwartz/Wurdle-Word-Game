@@ -5,6 +5,7 @@ import { WORDS } from "../../data";
 import GuessInput from "../GuessInput";
 import GuessList from "../GuessList";
 import EndBanner from "../EndBanner/EndBanner";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -25,7 +26,11 @@ function Game() {
         setIsWinner={setIsWinner}
         isWinner={isWinner}
       />
-      {/* <EndBanner isWinner={isWinner}/> */}
+      <EndBanner
+        isWinner={isWinner}
+        numberOfGuesses ={guessList.length}
+        answer={answer}
+      />
     </>
   );
 }
