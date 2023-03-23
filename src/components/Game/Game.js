@@ -24,7 +24,7 @@ function Game() {
         setGuessList={setGuessList}
         answer={answer}
         setIsWinner={setIsWinner}
-        isWinner={isWinner}
+        isDisabled={isWinner || guessList.length === NUM_OF_GUESSES_ALLOWED}
       />
       <EndBanner
         isWinner={isWinner}

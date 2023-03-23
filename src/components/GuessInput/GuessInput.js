@@ -1,7 +1,7 @@
 import React from "react";
 import { LENGTH_OF_GUESS, NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
-function GuessInput({guessList, setGuessList, answer, setIsWinner, isWinner}) {
+function GuessInput({guessList, setGuessList, answer, setIsWinner, isDisabled}) {
   const [guess, setGuess] = React.useState("");
 
   const handleSubmit = (e) => {
@@ -28,7 +28,7 @@ function GuessInput({guessList, setGuessList, answer, setIsWinner, isWinner}) {
         maxLength={LENGTH_OF_GUESS}
         pattern='.{5}'
         onChange={handleInputChange}
-        disabled={isWinner || guessList.length === NUM_OF_GUESSES_ALLOWED}
+        disabled={isDisabled}
       />
     </form>
   );
